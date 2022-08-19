@@ -59,8 +59,9 @@ def main():
         device=device,
     )
     print("Model acceleration:", ModelUtils.get_model_acceleration(model))
-    history = trainer.fit()
-    print(len(history))
+    print(trainer.get_model_summary((3, 32, 32)))
+    # history = trainer.fit()
+    # print(len(history))
 
 
 if __name__ == "__main__":

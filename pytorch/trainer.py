@@ -1,6 +1,7 @@
 from utils import ModelUtils
 from tqdm.auto import tqdm
 import torch
+from torchsummary import summary
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -110,3 +111,6 @@ class Trainer:
         # Remove the last pipe and white space
         result = result[:-3]
         print(result)
+
+    def get_model_summary(self, input_size):
+        return summary(self.model, input_size=input_size)
